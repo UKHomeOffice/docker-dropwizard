@@ -4,10 +4,7 @@ This is an onbuild container for Dropwizard.
 
 ## Assumptions
 
-* Your configuration is stored in `/configuration.yml`. Where "/" is the root of your build directory.
 * You are using Maven 3 to build
-* A single file matching `*-with-dependencies.jar` will be in the target directory at the end of the
-  build
 
 ### Getting started
 
