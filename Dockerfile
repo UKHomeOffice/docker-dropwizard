@@ -1,12 +1,11 @@
 FROM ukhomeofficedigital/centos-base
 
-RUN yum install -y java-1.7.0-openjdk java-1.7.0-openjdk-devel && \
-    yum clean all && \
-    mkdir /data /build
+RUN mkdir /data
+WORKDIR /data
 
-ONBUILD WORKDIR /build
-ONBUILD COPY . /build
-ONBUILD RUN curl -sS \
+ONBUILD COPY . /data
+ONBUILD RUN yum install -y java-1.7.0-openjdk java-1.7.0-openjdk-devel && \
+    curl -sS \
                   http://www.mirrorservice.org/sites/ftp.apache.org/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.tar.gz \
                   -o /tmp/apache-maven-3.3.1-bin.tar.gz && \
     tar xvzf /tmp/apache-maven-3.3.1-bin.tar.gz -C /tmp && \
@@ -21,9 +20,8 @@ ONBUILD RUN curl -sS \
            /usr/local/bin/mvn \
            /tmp/apache-maven-3.3.1-bin.tar.gz \
            $HOME/.m2 && \
-    mv target/*.jar /data/  && \
-    mv *.yml /data/ && \
-    rm -rf /build
-ONBUILD WORKDIR /data
-ONBUILD ENTRYPOINT java -jar
-ONBUILD CMD ["my-java-app.jar", "server"]
+     yum remove -y java-1.7.0-openjdk-devel && \
+     yum clean all
+
+ENTRYPOINT ["java", "-jar"]
+CMD ["target/my-java-app.jar", "server"]
