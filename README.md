@@ -14,7 +14,7 @@ This is an onbuild container for Dropwizard.
 Create a Dockerfile in your project and extend this one with the additional exposes you app exposes.
 
 ```docker
-FROM ukhomeofficedigital:dropwizard:0.1.0
+FROM ukhomeofficedigital:dropwizard:0.1.1
 
 EXPOSE 8080
 EXPOSE 8081

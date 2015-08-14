@@ -1,6 +1,6 @@
 FROM ukhomeofficedigital/centos-base
 
-RUN yum install -y java-1.7.0-openjdk && \
+RUN yum install -y java-1.7.0-openjdk java-1.7.0-openjdk-devel && \
     yum clean all && \
     mkdir /data /build
 
