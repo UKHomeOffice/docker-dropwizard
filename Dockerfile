@@ -22,7 +22,7 @@ ONBUILD RUN curl -sS \
            /tmp/apache-maven-3.3.1-bin.tar.gz \
            $HOME/.m2 && \
     mv target/*.jar /data/  && \
-    mv configuration.yml /data/configuration.yml && \
+    mv *.yml /data/ && \
     rm -rf /build
 ONBUILD WORKDIR /data
 ONBUILD ENTRYPOINT java -jar
