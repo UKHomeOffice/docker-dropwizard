@@ -21,9 +21,9 @@ ONBUILD RUN curl -sS \
            /usr/local/bin/mvn \
            /tmp/apache-maven-3.3.1-bin.tar.gz \
            $HOME/.m2 && \
-    mv target/*-with-dependencies.jar /data/  && \
+    mv target/*.jar /data/  && \
     mv configuration.yml /data/configuration.yml && \
     rm -rf /build
 ONBUILD WORKDIR /data
-ONBUILD ENTRYPOINT java -jar /data/*-with-dependencies.jar
-ONBUILD CMD ["server","/data/configuration.yml"]
+ONBUILD ENTRYPOINT java -jar
+ONBUILD CMD ["my-java-app.jar", "server"]

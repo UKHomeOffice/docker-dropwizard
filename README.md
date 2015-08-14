@@ -11,10 +11,13 @@ This is an onbuild container for Dropwizard.
 
 ### Getting started
 
-Create a Dockerfile in your project and extend this one with the additional exposes you app exposes.
+Create a Dockerfile in your project and extend this one with the additional ports you app expose. 
+Also specify the command to run the server including the jar file.
 
 ```docker
-FROM ukhomeofficedigital:dropwizard:0.1.1
+FROM ukhomeofficedigital:dropwizard:1.0.0
+
+CMD ["my-java-app.jar", "server", "maybe-a-config.yml"]
 
 EXPOSE 8080
 EXPOSE 8081
