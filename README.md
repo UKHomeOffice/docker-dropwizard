@@ -1,5 +1,7 @@
 # Docker Dropwizard
 
+[![Build Status](https://travis-ci.org/UKHomeOffice/docker-dropwizard.svg?branch=master)](https://travis-ci.org/UKHomeOffice/docker-dropwizard)
+
 This is an onbuild container for Dropwizard.
 
 ## Assumptions
